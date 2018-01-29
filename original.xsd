@@ -13,7 +13,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexType>
-			<xs:all>
+			<xs:sequence>
 				<xs:element name="GeneralReportData" type="GeneralDataType"
 					minOccurs="0" />
 				<xs:element name="ReportedGases" type="GasType"
@@ -29,13 +29,14 @@
 				<xs:element name="F5_S10_Auth_NER" type="Form5"
 					minOccurs="0" />
 				<xs:element name="F6_FUDest" type="Form6" minOccurs="0" />
-				<xs:element name="F7_s11EquImportTable" type="Form7"
-					minOccurs="0" />
+				<xs:element name="F7_s11EquImportTable" type="Form7" minOccurs="0" />
+                <xs:element name="F8_S12" type="Form8" minOccurs="0"/>
+                <xs:element name="F9_S13" type="Form9" minOccurs="0"/>
 				<xs:element name="unusualGasChoises" type="UnusualGasChoisesType"
 					minOccurs="0" maxOccurs="1" />
-                                <xs:element name="attachedCompanyData" type="AttachedCompanyData" minOccurs="1" maxOccurs="1" />
-                                <xs:element name="qcWarningFlags" type="QcWarningFlags" minOccurs="1" maxOccurs="1" />
-			</xs:all>
+				<xs:element name="attachedCompanyData" type="AttachedCompanyData" minOccurs="1" maxOccurs="1" />
+				<xs:element name="qcWarningFlags" type="QcWarningFlags" minOccurs="1" maxOccurs="1" />
+			</xs:sequence>
 			<xs:attribute ref="xml:lang" use="required" />
 		</xs:complexType>
 	</xs:element>
@@ -349,6 +350,10 @@
 							maxOccurs="1" />
 						<xs:element name="tr_01A" type="TransactionType"
 							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_01A_fs" type="TransactionType"
+									minOccurs="0" maxOccurs="1" />
+						<xs:element name="tr_01A_ex" type="TransactionType"
+									minOccurs="0" maxOccurs="1" />
 						<xs:element name="tr_01B" type="TransactionType"
 							minOccurs="1" maxOccurs="1" />
 						<xs:element name="tr_01C" type="TransactionTypePartners"
@@ -577,8 +582,6 @@
 			<xs:element name="tr_09F" type="TransactionType" />
 			<xs:element name="tr_09G" type="TransactionType" />
 			<xs:element name="Verified" type="xs:boolean" default="false" />
-			<xs:element name="SupportingDocuments" type="SupportingDocumentsType"
-				minOccurs="1" maxOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
 
@@ -1499,6 +1502,47 @@
 				minOccurs="0" maxOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
+    
+    <xs:complexType name="Form8">
+        <xs:sequence>
+            <xs:element name="Gas" minOccurs="1" maxOccurs="unbounded">
+				<xs:complexType>
+                    <xs:sequence>
+						<xs:element name="GasCode" type="xs:string" minOccurs="1" maxOccurs="1" />
+                        <xs:element name="tr_12A" type="TransactionTypePOMExp" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="Totals">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="tr_12B" type="NullableDouble" minOccurs="1" maxOccurs="1"/>
+									<xs:element name="tr_12C" type="NullableDouble" minOccurs="1" maxOccurs="1"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:element name="tr_12A_TradePartners" type="TradePartnersType"
+                        minOccurs="1" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Form9">
+        <xs:sequence>
+            <xs:element name="AuthBalance" type="TransactionType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Totals">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="tr_13B" type="TransactionType" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="tr_13C" type="TransactionType" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="tr_13D" type="TransactionType" minOccurs="1" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Verified" type="xs:boolean" default="false" />
+        </xs:sequence>
+    </xs:complexType>
+
 
 	<xs:simpleType name="NullableDouble">
 		<xs:list itemType="xs:double" />
@@ -1553,6 +1597,32 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:complexType name="TransactionTypePOMExp">
+		<xs:sequence>
+			<xs:element name="Code" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="SumOfPartnersAmount" type="NullableDouble" minOccurs="1" maxOccurs="1" />
+			<xs:element name="Unit" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="Transaction" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="TransactionID" type="xs:string" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="Amount" type="NullableDouble" minOccurs="1" maxOccurs="1" />
+						<xs:element name="Exporter"  type="TradePartnerYear" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="POM" type="TradePartnerYear" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="Comment" type="xs:string" minOccurs="0" maxOccurs="1" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="TradePartnerYear">
+		<xs:sequence>
+			<xs:element name="TradePartnerID" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Year" type="YearType" />
+		</xs:sequence>
+	</xs:complexType>
+
 	<xs:complexType name="TradePartnersType">
 		<xs:sequence>
 			<xs:element name="Partner" minOccurs="0">
@@ -1664,11 +1734,12 @@
                 <xs:element name="stocks" minOccurs="1">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="stock">
+                            <xs:element name="stock" maxOccurs="unbounded">
                                 <xs:complexType>
                                     <xs:all>
                                         <xs:element name="transactionCode" type="xs:string" />
                                         <xs:element name="gasId" type="xs:string" />
+                                        <xs:element name="gasName" type="xs:string" />
                                         <xs:element name="amount" type="NullableDouble" />
                                     </xs:all>
                                 </xs:complexType>
