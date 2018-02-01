@@ -801,6 +801,10 @@
 				<xs:complexType>
 					<xs:sequence>
 
+						<xs:element name="tr_11A01" type="xs:string" minOccurs="0"
+							maxOccurs="1" default="" />
+						<xs:element name="tr_11A02" type="xs:string" minOccurs="0"
+							maxOccurs="1" default="" />
 						<xs:element name="tr_11A03" type="xs:string" minOccurs="0"
 							maxOccurs="1" default="" />
 						<xs:element name="tr_11A09" type="xs:string" minOccurs="0"
@@ -834,12 +838,21 @@
 							maxOccurs="1" default="" />
 						<xs:element name="tr_11H04" type="xs:string" minOccurs="0"
 							maxOccurs="1" default="" />
+						<xs:element name="tr_11I" type="xs:string" minOccurs="0"
+									maxOccurs="1" default="" />
+						<xs:element name="tr_11J" type="xs:string" minOccurs="0"
+									maxOccurs="1" default="" />
+						<xs:element name="tr_11K" type="xs:string" minOccurs="0"
+									maxOccurs="1" default="" />
+						<xs:element name="tr_11L" type="xs:string" minOccurs="0"
+									maxOccurs="1" default="" />
+						<xs:element name="tr_11M" type="xs:string" minOccurs="0"
+									maxOccurs="1" default="" />
+						<xs:element name="tr_11N" type="xs:string" minOccurs="0"
+									maxOccurs="1" default="" />
+						<xs:element name="tr_11O" type="xs:string" minOccurs="0"
+									maxOccurs="1" default="" />
 						<xs:element name="tr_11P" type="xs:string" minOccurs="0"
-							maxOccurs="1" default="" />
-
-						<xs:element name="tr_11A01" type="xs:string" minOccurs="0"
-							maxOccurs="1" default="" />
-						<xs:element name="tr_11A02" type="xs:string" minOccurs="0"
 							maxOccurs="1" default="" />
 
 					</xs:sequence>
@@ -1502,7 +1515,7 @@
 				minOccurs="0" maxOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
-    
+
     <xs:complexType name="Form8">
         <xs:sequence>
             <xs:element name="Gas" minOccurs="1" maxOccurs="unbounded">
@@ -1625,7 +1638,7 @@
 
 	<xs:complexType name="TradePartnersType">
 		<xs:sequence>
-			<xs:element name="Partner" minOccurs="0">
+			<xs:element name="Partner" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="PartnerId" type="xs:string"
@@ -1681,7 +1694,7 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="TradePartnerID" type="xs:string" minOccurs="1" maxOccurs="1" />			
+			<xs:element name="TradePartnerID" type="xs:string" minOccurs="1" maxOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
 
@@ -1727,7 +1740,7 @@
                 </xs:element>
             </xs:sequence>
         </xs:complexType>
-        
+
         <xs:complexType name="AttachedCompanyData">
             <xs:all>
                 <xs:element name="nerStatus" type="xs:boolean" />
@@ -1790,7 +1803,6 @@
 				minOccurs="0" maxOccurs="unbounded" />
 		</xs:sequence>
 	</xs:complexType>
-
 
 	<xs:complexType name="AffiliationsType">
 		<xs:sequence>
