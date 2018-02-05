@@ -582,6 +582,10 @@
 			<xs:element name="tr_09F" type="TransactionType" />
 			<xs:element name="tr_09G" type="TransactionType" />
 			<xs:element name="Verified" type="xs:boolean" default="false" />
+            <xs:element name="tr_09A_imp_TradePartners" type="TradePartnersType" />
+            <xs:element name="tr_09A_add_TradePartners" type="TradePartnersType" />
+            <xs:element name="tr_09A_imp" type="TransactionTypePartners" />
+            <xs:element name="tr_09A_add" type="TransactionTypePartners" />
 		</xs:sequence>
 	</xs:complexType>
 
