@@ -1735,6 +1735,7 @@
                             <xs:element name="qcCode" type="xs:string" />
                             <xs:element name="gasId" type="xs:string" />
                             <xs:element name="tradePartnerId" type="xs:string" />
+                            <xs:element name="comment" type="xs:string" />
                         </xs:all>
                     </xs:complexType>
                 </xs:element>
