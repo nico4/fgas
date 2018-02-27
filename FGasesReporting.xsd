@@ -1664,13 +1664,13 @@
 		<xs:sequence>
 			<xs:element name="Partner" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
-					<xs:sequence>
+					<xs:all>
+						<xs:element name="CompanyName" minOccurs="0" maxOccurs="1" />
+                        <xs:element name="EUVAT" minOccurs="0" maxOccurs="1" />
 						<xs:element name="PartnerId" type="xs:string"
 							minOccurs="0" maxOccurs="1" />
-						<xs:element name="CompanyName" minOccurs="0" maxOccurs="1" />
 						<xs:element name="isEUBased" type="xs:boolean"
 							minOccurs="0" maxOccurs="1" default="false" />
-						<xs:element name="EUVAT" minOccurs="0" maxOccurs="1" />
 						<xs:element name="NonEUCountryOfEstablishment" type="xs:string"
 							minOccurs="0" maxOccurs="1"></xs:element>
 						<xs:element name="NonEUCountryCodeOfEstablishment"
@@ -1682,8 +1682,8 @@
 						<xs:element name="NonEURepresentativeVAT" type="xs:string"
 							minOccurs="0" maxOccurs="1"></xs:element>
 						<xs:element name="QCWarning" type="xs:integer"
-							minOccurs="0" maxOccurs="unbounded"></xs:element>
-					</xs:sequence>
+							minOccurs="0" maxOccurs="1"></xs:element>
+					</xs:all>
 				</xs:complexType>
 			</xs:element>
 		</xs:sequence>
