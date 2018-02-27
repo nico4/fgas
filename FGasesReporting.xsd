@@ -1772,7 +1772,7 @@
                 <xs:element name="stocks" minOccurs="1">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="stock" maxOccurs="unbounded">
+                            <xs:element name="stock" minOccurs="0" maxOccurs="unbounded">
                                 <xs:complexType>
                                     <xs:all>
                                         <xs:element name="transactionCode" type="xs:string" />
