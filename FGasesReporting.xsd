@@ -858,6 +858,16 @@
 									maxOccurs="1" default="" />
 						<xs:element name="tr_11P" type="xs:string" minOccurs="0"
 							maxOccurs="1" default="" />
+						<xs:element name="tr_11B01" type="xs:string" minOccurs="0" maxOccurs="1" default="" />
+						<xs:element name="tr_11B02" type="xs:string" minOccurs="0" maxOccurs="1" default="" />
+						<xs:element name="tr_11B04" type="xs:string" minOccurs="0" maxOccurs="1" default="" />
+						<xs:element name="tr_11B06" type="xs:string" minOccurs="0" maxOccurs="1" default="" />
+						<xs:element name="tr_11B08" type="xs:string" minOccurs="0" maxOccurs="1" default="" />
+						<xs:element name="tr_11B10" type="xs:string" minOccurs="0" maxOccurs="1" default="" />
+						<xs:element name="tr_11B11" type="xs:string" minOccurs="0" maxOccurs="1" default="" />
+						<xs:element name="tr_11B12" type="xs:string" minOccurs="0" maxOccurs="1" default="" />
+						<xs:element name="tr_11B13" type="xs:string" minOccurs="0" maxOccurs="1" default="" />
+						<xs:element name="tr_11B14" type="xs:string" minOccurs="0" maxOccurs="1" default="" />
 
 					</xs:sequence>
 				</xs:complexType>
@@ -1547,6 +1557,7 @@
     <xs:complexType name="Form9">
         <xs:sequence>
             <xs:element name="AuthBalance" type="TransactionType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="tr_13A_date" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Totals">
 				<xs:complexType>
 					<xs:sequence>
