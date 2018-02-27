@@ -1768,8 +1768,8 @@
 
         <xs:complexType name="AttachedCompanyData">
             <xs:all>
-                <xs:element name="nerStatus" type="xs:boolean" />
-                <xs:element name="stocks" minOccurs="1">
+                <xs:element name="nerStatus" type="xs:boolean" minOccurs="0" />
+                <xs:element name="stocks" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="stock" minOccurs="0" maxOccurs="unbounded">
