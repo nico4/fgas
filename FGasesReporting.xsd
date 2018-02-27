@@ -858,6 +858,15 @@
 									maxOccurs="1" default="" />
 						<xs:element name="tr_11P" type="xs:string" minOccurs="0"
 							maxOccurs="1" default="" />
+						<xs:element name="tr_11A04" type="xs:string" minOccurs="0" maxOccurs="1" default="" />
+						<xs:element name="tr_11A05" type="xs:string" minOccurs="0" maxOccurs="1" default="" />
+						<xs:element name="tr_11A06" type="xs:string" minOccurs="0" maxOccurs="1" default="" />
+						<xs:element name="tr_11A07" type="xs:string" minOccurs="0" maxOccurs="1" default="" />
+						<xs:element name="tr_11A08" type="xs:string" minOccurs="0" maxOccurs="1" default="" />
+						<xs:element name="tr_11A10" type="xs:string" minOccurs="0" maxOccurs="1" default="" />
+						<xs:element name="tr_11A11" type="xs:string" minOccurs="0" maxOccurs="1" default="" />
+						<xs:element name="tr_11A13" type="xs:string" minOccurs="0" maxOccurs="1" default="" />
+						<xs:element name="tr_11A14" type="xs:string" minOccurs="0" maxOccurs="1" default="" />
 						<xs:element name="tr_11B01" type="xs:string" minOccurs="0" maxOccurs="1" default="" />
 						<xs:element name="tr_11B02" type="xs:string" minOccurs="0" maxOccurs="1" default="" />
 						<xs:element name="tr_11B04" type="xs:string" minOccurs="0" maxOccurs="1" default="" />
