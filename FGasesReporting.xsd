@@ -449,34 +449,6 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="SumOfAllHFCsS1">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="tr_05G" type="xs:string" minOccurs="1"
-							maxOccurs="1" />
-						<xs:element name="tr_05H" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_05I" type="xs:string" minOccurs="1"
-							maxOccurs="1" />
-						<xs:element name="tr_05J" type="xs:string" minOccurs="1"
-							maxOccurs="1" />
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="SumOfAllHFCsS2">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="tr_05G" type="xs:string" minOccurs="1"
-							maxOccurs="1" />
-						<xs:element name="tr_05H" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_05I" type="xs:string" minOccurs="1"
-							maxOccurs="1" />
-						<xs:element name="tr_05J" type="xs:string" minOccurs="1"
-							maxOccurs="1" />
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
 			<xs:element name="Gas" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence>
@@ -506,6 +478,34 @@
 						<!--field for 5C_voluntary -->
 						<xs:element name="tr_05R" type="TransactionTypePartners"
 							minOccurs="1" maxOccurs="1" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="SumOfAllHFCsS1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="tr_05G" type="xs:string" minOccurs="1"
+							maxOccurs="1" />
+						<xs:element name="tr_05H" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_05I" type="xs:string" minOccurs="1"
+							maxOccurs="1" />
+						<xs:element name="tr_05J" type="xs:string" minOccurs="1"
+							maxOccurs="1" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="SumOfAllHFCsS2">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="tr_05G" type="xs:string" minOccurs="1"
+							maxOccurs="1" />
+						<xs:element name="tr_05H" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_05I" type="xs:string" minOccurs="1"
+							maxOccurs="1" />
+						<xs:element name="tr_05J" type="xs:string" minOccurs="1"
+							maxOccurs="1" />
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
