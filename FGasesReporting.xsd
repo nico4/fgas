@@ -16,8 +16,7 @@
 			<xs:sequence>
 				<xs:element name="GeneralReportData" type="GeneralDataType"
 					minOccurs="0" />
-				<xs:element name="ReportedGases" type="GasType"
-					minOccurs="0" maxOccurs="unbounded" />
+
 				<xs:element name="F1_S1_4_ProdImpExp" type="Form1"
 					minOccurs="0" />
 				<xs:element name="F2_S5_exempted_HFCs" type="Form2"
@@ -35,6 +34,8 @@
 				<xs:element name="unusualGasChoises" type="UnusualGasChoisesType"
 					minOccurs="0" maxOccurs="1" />
 				<xs:element name="attachedCompanyData" type="AttachedCompanyData" minOccurs="1" maxOccurs="1" />
+				<xs:element name="ReportedGases" type="GasType"
+					minOccurs="0" maxOccurs="unbounded" />
 				<xs:element name="qcWarningFlags" type="QcWarningFlags" minOccurs="1" maxOccurs="1" />
 			</xs:sequence>
 			<xs:attribute ref="xml:lang" use="required" />
@@ -448,6 +449,34 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
+			<xs:element name="SumOfAllHFCsS1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="tr_05G" type="xs:string" minOccurs="1"
+							maxOccurs="1" />
+						<xs:element name="tr_05H" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_05I" type="xs:string" minOccurs="1"
+							maxOccurs="1" />
+						<xs:element name="tr_05J" type="xs:string" minOccurs="1"
+							maxOccurs="1" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="SumOfAllHFCsS2">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="tr_05G" type="xs:string" minOccurs="1"
+							maxOccurs="1" />
+						<xs:element name="tr_05H" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_05I" type="xs:string" minOccurs="1"
+							maxOccurs="1" />
+						<xs:element name="tr_05J" type="xs:string" minOccurs="1"
+							maxOccurs="1" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 			<xs:element name="Gas" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence>
@@ -477,34 +506,6 @@
 						<!--field for 5C_voluntary -->
 						<xs:element name="tr_05R" type="TransactionTypePartners"
 							minOccurs="1" maxOccurs="1" />
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="SumOfAllHFCsS1">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="tr_05G" type="xs:string" minOccurs="1"
-							maxOccurs="1" />
-						<xs:element name="tr_05H" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_05I" type="xs:string" minOccurs="1"
-							maxOccurs="1" />
-						<xs:element name="tr_05J" type="xs:string" minOccurs="1"
-							maxOccurs="1" />
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="SumOfAllHFCsS2">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="tr_05G" type="xs:string" minOccurs="1"
-							maxOccurs="1" />
-						<xs:element name="tr_05H" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_05I" type="xs:string" minOccurs="1"
-							maxOccurs="1" />
-						<xs:element name="tr_05J" type="xs:string" minOccurs="1"
-							maxOccurs="1" />
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -591,15 +592,6 @@
 
 	<xs:complexType name="Form5">
 		<xs:sequence>
-			<xs:element name="Gas" minOccurs="0" maxOccurs="unbounded">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="GasCode" type="xs:string" />
-						<xs:element name="tr_10A" type="TransactionTypePartners"
-							minOccurs="1" maxOccurs="1" />
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
 			<xs:element name="SupportingDocuments">
 				<xs:complexType>
 					<xs:sequence>
@@ -624,32 +616,20 @@
 			</xs:element>
 			<xs:element name="tr_10A_TradePartners" type="TradePartnersType"
 				minOccurs="1" maxOccurs="1" />
+			<xs:element name="Gas" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="GasCode" type="xs:string" />
+						<xs:element name="tr_10A" type="TransactionTypePartners"
+							minOccurs="1" maxOccurs="1" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
 	<xs:complexType name="Form6">
 		<xs:sequence>
-			<xs:element name="Gas" minOccurs="0" maxOccurs="unbounded">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="GasCode" type="xs:string" />
-						<xs:element name="tr_07A" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_08A" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_08B" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_08C" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_08D" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_08E" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_08F" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
 			<xs:element name="Totals">
 				<xs:complexType>
 					<xs:sequence>
@@ -670,6 +650,27 @@
 						<xs:element name="tr_08DSumRothAllGasesCO2Eq" type="NullableDouble"
 							minOccurs="1" maxOccurs="1" />
 
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Gas" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="GasCode" type="xs:string" />
+						<xs:element name="tr_07A" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_08A" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_08B" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_08C" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_08D" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_08E" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_08F" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -1007,143 +1008,7 @@
 			<xs:element name="TR_11H4_Unit" type="xs:string"
 				minOccurs="0"></xs:element>
 
-			<xs:element name="Gas" minOccurs="0" maxOccurs="unbounded">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="GasCode" type="xs:string" />
-						<xs:element name="tr_11A" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11A01" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11A02" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11A03" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11A04" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11A05" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11A06" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11A07" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11A08" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11A09" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11A10" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11A11" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11A12" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11A13" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11A14" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11B" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11B01" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11B02" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11B03" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11B04" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11B05" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11B06" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11B07" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11B08" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11B09" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11B10" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11B11" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11B12" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11B13" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11B14" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11C" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11D" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11D01" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11D02" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11D03" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11E" type="TransactionType"
-							minOccurs="0" maxOccurs="1" />
-						<xs:element name="tr_11E01" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11E02" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11E03" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11E04" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11F" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11F01" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11F02" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11F03" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11F04" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11F05" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11F06" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11F07" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11F08" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11F09" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11G" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11H" type="TransactionType"
-							minOccurs="0" maxOccurs="1" />
-						<xs:element name="tr_11H01" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11H02" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11H03" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11H04" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11I" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11J" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11K" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11L" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11M" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11N" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11O" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11P" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-						<xs:element name="tr_11Q" type="TransactionType"
-							minOccurs="1" maxOccurs="1" />
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
+
 			<xs:element name="AmountOfImportedEquipment" minOccurs="0">
 				<xs:complexType>
 					<xs:sequence>
@@ -1536,11 +1401,152 @@
 			</xs:element>
 			<xs:element name="SupportingDocuments" type="SupportingDocumentsType"
 				minOccurs="0" maxOccurs="1" />
+            <xs:element name="Gas" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="GasCode" type="xs:string" />
+						<xs:element name="tr_11A" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11A01" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11A02" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11A03" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11A04" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11A05" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11A06" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11A07" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11A08" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11A09" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11A10" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11A11" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11A12" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11A13" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11A14" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11B" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11B01" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11B02" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11B03" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11B04" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11B05" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11B06" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11B07" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11B08" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11B09" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11B10" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11B11" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11B12" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11B13" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11B14" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11C" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11D" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11D01" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11D02" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11D03" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11E" type="TransactionType"
+							minOccurs="0" maxOccurs="1" />
+						<xs:element name="tr_11E01" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11E02" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11E03" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11E04" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11F" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11F01" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11F02" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11F03" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11F04" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11F05" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11F06" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11F07" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11F08" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11F09" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11G" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11H" type="TransactionType"
+							minOccurs="0" maxOccurs="1" />
+						<xs:element name="tr_11H01" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11H02" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11H03" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11H04" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11I" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11J" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11K" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11L" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11M" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11N" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11O" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11P" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+						<xs:element name="tr_11Q" type="TransactionType"
+							minOccurs="1" maxOccurs="1" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
     <xs:complexType name="Form8">
         <xs:sequence>
+
+
+            <xs:element name="tr_12A_TradePartners" type="TradePartnersType"
+                        minOccurs="1" maxOccurs="unbounded" />
             <xs:element name="Gas" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
                     <xs:sequence>
@@ -1557,9 +1563,6 @@
 					</xs:sequence>
                 </xs:complexType>
             </xs:element>
-
-            <xs:element name="tr_12A_TradePartners" type="TradePartnersType"
-                        minOccurs="1" maxOccurs="unbounded" />
         </xs:sequence>
     </xs:complexType>
 
